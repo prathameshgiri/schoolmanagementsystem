@@ -196,8 +196,8 @@ Developed by **Prathamesh Giri** — All rights reserved © 2026.
 
 <div align="center">
 
-Made with ❤️ by Prathamesh Giri in India
 
 **[prathameshgiri.in](https://prathameshgiri.in/)** • **[build.prathameshgiri.in](https://build.prathameshgiri.in/)**
 
 </div>
+
