@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Smart Edu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+
+<body class="dashboard-body">
+    <nav class="sidebar glass-panel">
+        <div class="logo"><i class="fa-solid fa-user-shield"></i> System Admin</div>
+        <ul class="nav-menu">
+            <li><a href="#" class="active" onclick="showSection('overview')"><i class="fa-solid fa-border-all"></i>
+                    Overview</a></li>
+            <li><a href="#" onclick="showSection('students')"><i class="fa-solid fa-users-gear"></i> Students Mgmt</a>
+            </li>
+            <li><a href="#" onclick="showSection('attendance')"><i class="fa-solid fa-clipboard-user"></i>
+                    Attendance</a></li>
+            <li><a href="#" onclick="showSection('fees')"><i class="fa-solid fa-file-invoice-dollar"></i> Fees Mgmt</a>
+            </li>
+            <li><a href="#" onclick="showSection('results')"><i class="fa-solid fa-chart-line"></i> Results</a></li>
+            <li><a href="#" onclick="showSection('events')"><i class="fa-solid fa-calendar-alt"></i> Events</a></li>
+            <li><a href="#" onclick="showSection('news')"><i class="fa-solid fa-bullhorn"></i> News</a></li>
+            <li><a href="#" onclick="showSection('messages')"><i class="fa-solid fa-envelope"></i> Messages</a></li>
+            <li><a href="#" onclick="showSection('admissions')"><i class="fa-solid fa-graduation-cap"></i>
+                    Admissions</a></li>
+            <li class="mt-4"><a href="#" onclick="logout()" style="color:#ef4444;"><i
+                        class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+        </ul>
+    </nav>
+    <main class="dashboard-main">
+        <header class="topbar glass-panel">
+            <h2><i class="fa-solid fa-hand-sparkles"></i> Welcome, Admin</h2>
+            <div class="notification-bell glass-panel"
+                style="padding: 10px 15px; border-radius: 20px; cursor: pointer;">
+                <i class="fa-solid fa-bell"></i> <span id="notif-badge"
+                    style="background:var(--primary); color:white; padding: 2px 8px; border-radius:10px; font-weight:bold; margin-left:5px;">0</span>
+            </div>
+        </header>
+
+        <div class="content">
+            <section id="overview" class="section active fade-in" style="min-height: 400px;"></section>
+
+            <h3 class="mt-4">Live Notifications</h3>
+            <div id="notifications-list" class="notif-list glass-panel"></div>
+            </section>
+
+            <!-- Students -->
+            <section id="students" class="section" style="display:none;">
+                <h3 class="section-title">Manage Students</h3>
+                <button class="btn btn-primary mb" onclick="openModal('student-modal')">+ Add Student</button>
+                <table class="data-table glass-panel">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Class</th>
+                            <th>Section</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-table"></tbody>
+                </table>
+            </section>
+
+            <!-- Attendance -->
+            <section id="attendance" class="section" style="display:none;">
+                <h3 class="section-title">Manage Attendance</h3>
+                <button class="btn btn-primary mb" onclick="openModal('attendance-modal')">+ Mark Attendance</button>
+                <table class="data-table glass-panel">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Student ID</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendance-table"></tbody>
+                </table>
+            </section>
+
+            <!-- Results -->
+            <section id="results" class="section" style="display:none;">
+                <h3 class="section-title">Manage Results</h3>
+                <button class="btn btn-primary mb" onclick="openModal('result-modal')">+ Upload Result</button>
+                <table class="data-table glass-panel">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Subject</th>
+                            <th>Marks</th>
+                            <th>Grade</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-table"></tbody>
+                </table>
+            </section>
+
+            <!-- Fees -->
+            <section id="fees" class="section" style="display:none;">
+                <h3 class="section-title">Manage Fees</h3>
+                <button class="btn btn-primary mb" onclick="openModal('fee-modal')">+ Add Fee Record</button>
+                <table class="data-table glass-panel">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Detail</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fees-table"></tbody>
+                </table>
+            </section>
+
+            <!-- Events -->
+            <section id="events" class="section" style="display:none;">
+                <h3 class="section-title">Manage Events</h3>
+                <button class="btn btn-primary mb" onclick="openModal('event-modal')">+ Add Event</button>
+                <table class="data-table glass-panel">
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="events-table"></tbody>
+                </table>
+            </section>
+
+            <!-- News -->
+            <section id="news" class="section" style="display:none;">
+                <h3 class="section-title">School Announcements</h3>
+                <button class="btn btn-primary mb" onclick="openModal('news-modal')">+ Add Announcement</button>
+                <table class="data-table glass-panel">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="news-table"></tbody>
+                </table>
+            </section>
+
+            <!-- Messages -->
+            <section id="messages" class="section" style="display:none;">
+                <h3 class="section-title">Inquiries & Contact Messages</h3>
+                <table class="data-table glass-panel">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messages-table"></tbody>
+                </table>
+            </section>
+
+            <!-- Admissions -->
+            <section id="admissions" class="section" style="display:none;">
+                <h3 class="section-title">Admission Applications</h3>
+                <table class="data-table glass-panel">
+                    <thead>
+                        <tr>
+                            <th>Student / Applicant</th>
+                            <th>Email</th>
+                            <th>Details (Course & Phone)</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admissions-table"></tbody>
+                </table>
+            </section>
+        </div>
+
+        <footer id="school-footer"
+            style="padding: 15px; text-align: center; font-size: 0.85rem; color: #64748b; background: rgba(255,255,255,0.3); border-top: 1px solid var(--glass-border); margin-top: auto;">
+            &copy; 2026 Smart Edu Admin. All Rights Reserved. | Designed for Ankita Biradar | Developed by <a
+                href="https://prathameshgiri.in/" target="_blank"
+                style="color: var(--primary); font-weight: 600; text-decoration: none;">Prathamesh Giri</a>
+        </footer>
+    </main>
+
+    <!-- Modals for Forms -->
+    <div id="student-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close" onclick="closeModal('student-modal')">&times;</span>
+            <h2>Add / Edit Student</h2>
+            <form id="form-student">
+                <input type="hidden" id="stud-id">
+                <div class="input-group"><label>Name</label><input type="text" id="stud-name" required></div>
+                <div class="input-group"><label>Email</label><input type="email" id="stud-email" required></div>
+                <div class="input-group"><label>Class</label><input type="text" id="stud-class" required></div>
+                <div class="input-group"><label>Section</label><input type="text" id="stud-section" required></div>
+                <button type="submit" class="btn btn-success">Save Student</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="attendance-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close" onclick="closeModal('attendance-modal')">&times;</span>
+            <h2>Mark Attendance</h2>
+            <form id="form-attendance">
+                <input type="hidden" id="att-id">
+                <div class="input-group"><label>Date (YYYY-MM-DD)</label><input type="date" id="att-date" required>
+                </div>
+                <div class="input-group"><label>Student ID</label><input type="number" id="att-stud-id" required></div>
+                <div class="input-group"><label>Status</label><select id="att-status">
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select></div>
+                <button type="submit" class="btn btn-success">Save Attendance</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Similar Modals for Result, Fee, Event, News -->
+
+    <div id="result-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close" onclick="closeModal('result-modal')">&times;</span>
+            <h2>Upload Result</h2>
+            <form id="form-result">
+                <input type="hidden" id="res-id">
+                <div class="input-group"><label>Student ID</label><input type="number" id="res-stud-id" required></div>
+                <div class="input-group"><label>Subject</label><input type="text" id="res-subject" required></div>
+                <div class="input-group"><label>Marks</label><input type="number" id="res-marks" required></div>
+                <div class="input-group"><label>Grade</label><input type="text" id="res-grade" required></div>
+                <div class="input-group"><label>Status</label><select id="res-status">
+                        <option>Pass</option>
+                        <option>Fail</option>
+                    </select></div>
+                <button type="submit" class="btn btn-success">Save Result</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="fee-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close" onclick="closeModal('fee-modal')">&times;</span>
+            <h2>Manage Fee</h2>
+            <form id="form-fee">
+                <input type="hidden" id="fee-id">
+                <div class="input-group"><label>Student ID</label><input type="number" id="fee-stud-id" required></div>
+                <div class="input-group"><label>Detail</label><input type="text" id="fee-detail" required></div>
+                <div class="input-group"><label>Amount</label><input type="number" id="fee-amount" required></div>
+                <div class="input-group"><label>Status</label><select id="fee-status">
+                        <option>Paid</option>
+                        <option>Pending</option>
+                    </select></div>
+                <button type="submit" class="btn btn-success">Save Fee</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="event-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close" onclick="closeModal('event-modal')">&times;</span>
+            <h2>Manage Event</h2>
+            <form id="form-event">
+                <input type="hidden" id="evt-id">
+                <div class="input-group"><label>Title</label><input type="text" id="evt-title" required></div>
+                <div class="input-group"><label>Date</label><input type="date" id="evt-date" required></div>
+                <div class="input-group"><label>Description</label><textarea id="evt-desc" required></textarea></div>
+                <button type="submit" class="btn btn-success">Save Event</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="news-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close" onclick="closeModal('news-modal')">&times;</span>
+            <h2>Manage News</h2>
+            <form id="form-news">
+                <input type="hidden" id="nws-id">
+                <div class="input-group"><label>Title</label><input type="text" id="nws-title" required></div>
+                <div class="input-group"><label>Date</label><input type="date" id="nws-date" required></div>
+                <div class="input-group"><label>Content</label><textarea id="nws-content" required></textarea></div>
+                <button type="submit" class="btn btn-success">Save News</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+
+</html>

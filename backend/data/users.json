@@ -1,0 +1,349 @@
+[
+  {
+    "id": 100,
+    "email": "sandhya@admin.com",
+    "password": "1234",
+    "role": "admin",
+    "name": "Admin Sandhya"
+  },
+  {
+    "id": 1,
+    "email": "student@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Aarav Sharma",
+    "class": "BCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 2,
+    "email": "parent@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Rajesh Sharma",
+    "studentId": 1
+  },
+  {
+    "id": 3,
+    "email": "student3@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Vivaan Verma",
+    "class": "BCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 4,
+    "email": "parent4@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Sunil Verma",
+    "studentId": 3
+  },
+  {
+    "id": 5,
+    "email": "student5@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Aditya Iyer",
+    "class": "BCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 6,
+    "email": "parent6@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Ramesh Iyer",
+    "studentId": 5
+  },
+  {
+    "id": 7,
+    "email": "student7@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Vihaan Singh",
+    "class": "BCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 8,
+    "email": "parent8@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Sanjay Singh",
+    "studentId": 7
+  },
+  {
+    "id": 9,
+    "email": "student9@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Arjun Desai",
+    "class": "BCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 10,
+    "email": "parent10@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Manish Desai",
+    "studentId": 9
+  },
+  {
+    "id": 11,
+    "email": "student11@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Sai Krishna",
+    "class": "BCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 12,
+    "email": "parent12@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Venkatesh Krishna",
+    "studentId": 11
+  },
+  {
+    "id": 13,
+    "email": "student13@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Ayaan Patel",
+    "class": "BCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 14,
+    "email": "parent14@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Kamlesh Patel",
+    "studentId": 13
+  },
+  {
+    "id": 15,
+    "email": "student15@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Krishna Gupta",
+    "class": "BCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 16,
+    "email": "parent16@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Amit Gupta",
+    "studentId": 15
+  },
+  {
+    "id": 17,
+    "email": "student17@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Ishaan Joshi",
+    "class": "BCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 18,
+    "email": "parent18@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Pradeep Joshi",
+    "studentId": 17
+  },
+  {
+    "id": 19,
+    "email": "student19@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Shaurya Reddy",
+    "class": "BCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 20,
+    "email": "parent20@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Prakash Reddy",
+    "studentId": 19
+  },
+  {
+    "id": 21,
+    "email": "student21@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Ananya Patil",
+    "class": "MCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 22,
+    "email": "parent22@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Vijay Patil",
+    "studentId": 21
+  },
+  {
+    "id": 23,
+    "email": "student23@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Diya Malhotra",
+    "class": "MCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 24,
+    "email": "parent24@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Suresh Malhotra",
+    "studentId": 23
+  },
+  {
+    "id": 25,
+    "email": "student25@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Khushi Mehta",
+    "class": "MCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 26,
+    "email": "parent26@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Rakesh Mehta",
+    "studentId": 25
+  },
+  {
+    "id": 27,
+    "email": "student27@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Tanisha Choudhury",
+    "class": "MCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 28,
+    "email": "parent28@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Deepak Choudhury",
+    "studentId": 27
+  },
+  {
+    "id": 29,
+    "email": "student29@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Aditi Nair",
+    "class": "MCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 30,
+    "email": "parent30@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Rajesh Nair",
+    "studentId": 29
+  },
+  {
+    "id": 31,
+    "email": "student31@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Sneha Kapoor",
+    "class": "MCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 32,
+    "email": "parent32@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Anil Kapoor",
+    "studentId": 31
+  },
+  {
+    "id": 33,
+    "email": "student33@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Kavya Rao",
+    "class": "MCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 34,
+    "email": "parent34@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Harish Rao",
+    "studentId": 33
+  },
+  {
+    "id": 35,
+    "email": "student35@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Riya Menon",
+    "class": "MCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 36,
+    "email": "parent36@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Suresh Menon",
+    "studentId": 35
+  },
+  {
+    "id": 37,
+    "email": "student37@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Neha Bhatia",
+    "class": "MCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 38,
+    "email": "parent38@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Sunil Bhatia",
+    "studentId": 37
+  },
+  {
+    "id": 39,
+    "email": "student39@abc.com",
+    "password": "1234",
+    "role": "student",
+    "name": "Shreya Kadam",
+    "class": "MCA 1st Year",
+    "section": "A"
+  },
+  {
+    "id": 40,
+    "email": "parent40@abc.com",
+    "password": "1234",
+    "role": "parent",
+    "name": "Pramod Kadam",
+    "studentId": 39
+  }
+]

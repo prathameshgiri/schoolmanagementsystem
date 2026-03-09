@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student/Parent Dashboard - Smart Edu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-body">
+    <nav class="sidebar glass-panel">
+        <div class="logo"><i class="fa-solid fa-graduation-cap"></i> Smart Edu</div>
+        <ul class="nav-menu">
+            <li><a href="#" class="active" onclick="showSection('overview')"><i class="fa-solid fa-border-all"></i>
+                    Overview</a></li>
+            <li><a href="#" onclick="showSection('attendance')"><i class="fa-solid fa-clipboard-user"></i>
+                    Attendance</a></li>
+            <li><a href="#" onclick="showSection('results')"><i class="fa-solid fa-chart-line"></i> Results</a></li>
+            <li><a href="#" onclick="showSection('fees')"><i class="fa-solid fa-file-invoice-dollar"></i> Fees</a></li>
+            <li><a href="#" onclick="showSection('events')"><i class="fa-solid fa-calendar-alt"></i> Events</a></li>
+            <li><a href="#" onclick="showSection('news')"><i class="fa-solid fa-newspaper"></i> News</a></li>
+            <li><a href="#" onclick="showSection('contact')"><i class="fa-solid fa-message"></i> Contact Admin</a></li>
+            <li class="mt-4"><a href="#" onclick="logout()" style="color: #ef4444;"><i
+                        class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+        </ul>
+    </nav>
+    <main class="dashboard-main">
+        <header class="topbar glass-panel">
+            <h2>Welcome, <span id="student-name" class="text-primary">User</span> <span id="parent-tag"
+                    style="font-size: 1rem; color: #64748b; font-weight: normal;"></span></h2>
+            <div class="profile-info glass-panel" style="padding: 10px 20px;">
+                Class: <strong id="student-class">10</strong> | Section: <strong id="student-section">A</strong>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Overview -->
+            <section id="overview" class="section active fade-in">
+                <div class="cards-grid">
+                    <div class="card glass-panel" style="border-left: 4px solid var(--primary);">
+                        <h3>Attendance Summary</h3>
+                        <p class="stat" id="stat-attendance">0%</p>
+                    </div>
+                    <div class="card glass-panel" style="border-left: 4px solid var(--accent);">
+                        <h3>Pending Fees</h3>
+                        <p class="stat" id="stat-fees">$0</p>
+                    </div>
+                    <div class="card glass-panel" style="border-left: 4px solid var(--secondary);">
+                        <h3>Latest Grade</h3>
+                        <p class="stat" id="stat-result">-</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Attendance -->
+            <section id="attendance" class="section" style="display:none;">
+                <h3 class="section-title">Class-wise Attendance Record</h3>
+                <div class="card glass-panel text-left p-0">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendance-list"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Results -->
+            <section id="results" class="section" style="display:none;">
+                <h3 class="section-title">Academic Results</h3>
+                <div class="card glass-panel text-left p-0">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Marks</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-list"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Fees -->
+            <section id="fees" class="section" style="display:none;">
+                <h3 class="section-title">Fee Invoice</h3>
+                <div class="card glass-panel text-left p-0">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Detail</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fees-list"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Events -->
+            <section id="events" class="section" style="display:none;">
+                <h3 class="section-title">Upcoming Events</h3>
+                <div class="grid" id="events-grid"></div>
+            </section>
+
+            <!-- News -->
+            <section id="news" class="section" style="display:none;">
+                <h3 class="section-title">Announcements</h3>
+                <div class="grid" id="news-grid"></div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="section" style="display:none;">
+                <h3 class="section-title">Send Message to Admin</h3>
+                <div class="card glass-panel form-card">
+                    <form id="contact-form">
+                        <div class="input-group">
+                            <label>Name</label>
+                            <input type="text" id="msg-name" required disabled>
+                        </div>
+                        <div class="input-group">
+                            <label>Email</label>
+                            <input type="email" id="msg-email" required disabled>
+                        </div>
+                        <div class="input-group">
+                            <label>Message</label>
+                            <textarea id="msg-content" rows="4" required placeholder="Type your issue..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Secure Message</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <footer id="school-footer"
+            style="padding: 15px; text-align: center; font-size: 0.85rem; color: #64748b; background: rgba(255,255,255,0.3); border-top: 1px solid var(--glass-border); margin-top: auto;">
+            &copy; 2026 Smart Edu. All Rights Reserved. | Designed for Ankita Biradar | Developed by <a
+                href="https://prathameshgiri.in/" target="_blank"
+                style="color: var(--primary); font-weight: 600; text-decoration: none;">Prathamesh Giri</a>
+        </footer>
+    </main>
+
+    <!-- Toastify for Animations & Real-time -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
